@@ -1,0 +1,93 @@
+{
+  "searchinfo": {
+    "search": "miles"
+  },
+  "search": [
+    {
+      "repository": "",
+      "id": "Q253276",
+      "concepturi": "http://www.wikidata.org/entity/Q253276",
+      "title": "Q253276",
+      "pageid": 245822,
+      "url": "//www.wikidata.org/wiki/Q253276",
+      "label": "mile",
+      "description": "unit of length",
+      "match": {
+        "type": "alias",
+        "language": "en",
+        "text": "miles"
+      },
+      "aliases": [
+        "miles"
+      ]
+    },
+    {
+      "repository": "",
+      "id": "Q194135",
+      "concepturi": "http://www.wikidata.org/entity/Q194135",
+      "title": "Q194135",
+      "pageid": 192064,
+      "url": "//www.wikidata.org/wiki/Q194135",
+      "label": "Miles \"Tails\" Prower",
+      "description": "fictional character from the Sonic videogame franchise",
+      "match": {
+        "type": "alias",
+        "language": "en",
+        "text": "Miles"
+      },
+      "aliases": [
+        "Miles"
+      ]
+    },
+    {
+      "repository": "",
+      "id": "Q1930165",
+      "concepturi": "http://www.wikidata.org/entity/Q1930165",
+      "title": "Q1930165",
+      "pageid": 1859871,
+      "url": "//www.wikidata.org/wiki/Q1930165",
+      "label": "Miles",
+      "description": "city in Jackson County, Iowa, United States",
+      "match": {
+        "type": "label",
+        "language": "en",
+        "text": "Miles"
+      }
+    },
+    {
+      "repository": "",
+      "id": "Q809078",
+      "concepturi": "http://www.wikidata.org/entity/Q809078",
+      "title": "Q809078",
+      "pageid": 761981,
+      "url": "//www.wikidata.org/wiki/Q809078",
+      "label": "Barry Miles",
+      "description": "English author",
+      "match": {
+        "type": "alias",
+        "language": "en",
+        "text": "Miles"
+      },
+      "aliases": [
+        "Miles"
+      ]
+    },
+    {
+      "repository": "",
+      "id": "Q248075",
+      "concepturi": "http://www.wikidata.org/entity/Q248075",
+      "title": "Q248075",
+      "pageid": 240870,
+      "url": "//www.wikidata.org/wiki/Q248075",
+      "label": "Miles",
+      "description": "Wikipedia disambiguation page",
+      "match": {
+        "type": "label",
+        "language": "en",
+        "text": "Miles"
+      }
+    }
+  ],
+  "search-continue": 5,
+  "success": 1
+}

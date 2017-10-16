@@ -57,3 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# don't want the build directory since it only holds a browserified version of a script we use for development.js
+build
+
+# idea
+.idea
