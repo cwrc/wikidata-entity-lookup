@@ -2,7 +2,7 @@
 
 [![Travis](https://img.shields.io/travis/cwrc/wikidata-entity-lookup.svg)](https://travis-ci.org/cwrc/wikidata-entity-lookup)
 [![Codecov](https://img.shields.io/codecov/c/github/cwrc/wikidata-entity-lookup.svg)](https://codecov.io/gh/cwrc/wikidata-entity-lookup)
-[![version](https://img.shields.io/npm/v/wikidata-entity-lookup.svg)](http://npm.im/viaf-entity-lookup)
+[![version](https://img.shields.io/npm/v/wikidata-entity-lookup.svg)](http://npm.im/wikidata-entity-lookup)
 [![downloads](https://img.shields.io/npm/dm/wikidata-entity-lookup.svg)](http://npm-stat.com/charts.html?package=wikidata-entity-lookup&from=2015-08-01)
 [![GPL-3.0](https://img.shields.io/npm/l/wikidata-entity-lookup.svg)](http://opensource.org/licenses/GPL-3.0)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
@@ -122,7 +122,7 @@ and all find* methods return promises that resolve to an object like the followi
 }
 ```
 <br><br>
-There are a further four methods that are mainly made available to facilitate testing (to make it easier to mock calls to the VIAF service):
+There are a further four methods that are mainly made available to facilitate testing (to make it easier to mock calls to the wikidata service):
 
 ###### getPersonLookupURI(query)
 
@@ -181,4 +181,3 @@ install:
 
 We follow [SemVer](http://semver.org), which [Semantic Release](https://github.com/semantic-release/semantic-release) makes easy.  
 Semantic Release also writes our commit messages, sets the version number, publishes to NPM, and finally generates a changelog and a release (including a git tag) on GitHub.
-
