@@ -37,9 +37,15 @@ We'd like, however, to match with full text search, so we can match on partial s
 Just in the simple case above, for example, someone searching for The Rolling Stones would have to fully specify 'The Rolling Stones' and not just 'Rolling Stones'.  If they left out 'The' then their query won't return the result.
 
 There is a SPARQL CONTAINS operator that can be used within a FILTER, and that matches substrings, which would be better.  
-CONTAINS does only supports exact matches of substrings, no fuzzy querying, but for names that might be fine.  CONTAINS seems to work fine with some data stores like getty, 
-but the same query that works on getty will only work occasionally on wikidata and mostly times out.    There are alternatives to CONTAINS, most notably REGEX, but as described 
-here: https://www.cray.com/blog/dont-use-hammer-screw-nail-alternatives-regex-sparql/  REGEX has even worse performance than CONTAINS.  A further alternative is to use some of the 
+CONTAINS does only supports exact matches of substrings, no fuzzy querying, but for names that might be fine.  
+
+CONTAINS seems to work fine with some data stores like getty, 
+but the same query that works on getty will only work occasionally on wikidata and mostly times out.    
+
+There are alternatives to CONTAINS, most notably REGEX, but as described 
+here: https://www.cray.com/blog/dont-use-hammer-screw-nail-alternatives-regex-sparql/  REGEX has even worse performance than CONTAINS.  
+
+A further alternative is to use some of the 
 custom full text SPARQL search functions that specific triplestores might offer, and maybe since we are controlling the queries that might be fine.  Wikidata, however, doesn’t seem 
 to have anything like this, and while support for full text search in SPARQL is planned, it’s been in the queue for a while:  https://phabricator.wikimedia.org/T141813
 
@@ -58,7 +64,7 @@ There are a couple of npm packages for querying wikidata:
 https://github.com/kbarresi/wikidata-search
 https://www.npmjs.com/package/wikidata-sdk 
 
-Both use the www.wikidata.org/w/api.php API.  The wikidata-sdk package also allows SPARQL querying, but again, without full text search — it assumes you know exactly the string you are matching.
+Both use the www.wikidata.org/w/api.php API mentioned above.  The wikidata-sdk package also allows SPARQL querying, but again, without full text search — it assumes you know exactly the string you are matching.
 
 In summary, if we knew the exact string to match, then we could use SPARQL and thereby filter by type.
 
