@@ -68,35 +68,44 @@ function getTitleLookupURI(queryString) {
     return getEntitySourceURI(queryString)
 }
 
-async function callWikidata(url, queryString) {
+function callWikidata(url, queryString) {
 
-        let parsedJSON = await fetchWithTimeout(url)
+    return fetchWithTimeout(url).then((parsedJSON) => {
 
         return parsedJSON.search.map(
             ({
-                        concepturi: uri,
-                         label: name,
-                         description
+                 concepturi: uri,
+                 label: name,
+                 description
 
              }) => {
-                return {nameType: 'unknown', id: uri, uri, name, repository: 'wikidata', originalQueryString: queryString, description}
+                return {
+                    nameType: 'unknown',
+                    id: uri,
+                    uri,
+                    name,
+                    repository: 'wikidata',
+                    originalQueryString: queryString,
+                    description
+                }
             })
 
+    })
 }
 
-async function findPerson(queryString) {
+function findPerson(queryString) {
     return callWikidata(getPersonLookupURI(queryString), queryString)
 }
 
-async function findPlace(queryString) {
+function findPlace(queryString) {
     return callWikidata(getPlaceLookupURI(queryString), queryString)
 }
 
-async function findOrganization(queryString) {
+function findOrganization(queryString) {
     return callWikidata(getOrganizationLookupURI(queryString), queryString)
 }
 
-async function findTitle(queryString) {
+function findTitle(queryString) {
     return callWikidata(getTitleLookupURI(queryString), queryString)
 }
 
