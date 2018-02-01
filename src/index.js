@@ -82,6 +82,7 @@ function callWikidata(url, queryString) {
                 return {
                     nameType: 'unknown',
                     id: uri,
+                    uriForDisplay: uri.replace('http', 'https'),
                     uri,
                     name,
                     repository: 'wikidata',

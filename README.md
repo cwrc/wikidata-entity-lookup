@@ -117,7 +117,9 @@ and all find* methods return promises that resolve to an object like the followi
     
     repository: "wikidata"
     
-    uri: "http://wikidata.org/9447148209321300460003/"
+    uri: "http://wikidata.org/9447148209321300460003/",
+    
+    uriForDisplay: "https://wikidata.org/9447148209321300460003/"
     
 }
 ```
