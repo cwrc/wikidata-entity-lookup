@@ -46,10 +46,6 @@ function getEntitySourceURI(queryString) {
         language: 'en',
         limit: 5
     })
-    /* return `https://query.wikidata.org/bigdata/namespace/wdq/sparql?query=SELECT DISTINCT ?s ?label WHERE {
-            ?s rdfs:label ?label .
-FILTER (CONTAINS (?label,${encodeURIComponent(queryString)}))`*/
-
 }
 
 function getPersonLookupURI(queryString) {
