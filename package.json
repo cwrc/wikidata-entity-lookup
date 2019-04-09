@@ -63,6 +63,7 @@
     }
   },
   "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
     "wikidata-sdk": "^5.2.8"
   },
   "browserify": {
