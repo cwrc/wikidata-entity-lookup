@@ -6,7 +6,7 @@ var fs = require('fs')
 var path = require('path')
 var concatStream = require('concat-stream')
 
-var covPath = path.join(__dirname, '..', 'coverage', 'coverage.json')
+var covPath = path.join(__dirname, '..', '.nyc_output', 'coverage.json')
 
 process.stdin.pipe(concatStream(function (input) {
 
