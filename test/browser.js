@@ -23,7 +23,8 @@ var clock;
     {uriBuilderFn: 'getPersonLookupURI', testFixture:resultsFixture},
     {uriBuilderFn: 'getPlaceLookupURI', testFixture:resultsFixture},
     {uriBuilderFn: 'getOrganizationLookupURI', testFixture:resultsFixture},
-    {uriBuilderFn: 'getTitleLookupURI', testFixture:resultsFixture}
+    {uriBuilderFn: 'getTitleLookupURI', testFixture:resultsFixture},
+    {uriBuilderFn: 'getRSLookupURI', testFixture:resultsFixture}
 ].forEach(entityLookup=> {
 
    let uriBuilderFn = wikidata[entityLookup.uriBuilderFn];
@@ -63,14 +64,14 @@ function doObjectsHaveSameKeys(...objects){
 }
 
 test('lookup builders', (assert)=> {
-    assert.plan(4);
-    ['getPersonLookupURI', 'getPlaceLookupURI', 'getTitleLookupURI', 'getOrganizationLookupURI'].forEach(uriBuilderMethod => {
+    assert.plan(5);
+    ['getPersonLookupURI', 'getPlaceLookupURI', 'getTitleLookupURI', 'getOrganizationLookupURI', 'getRSLookupURI'].forEach(uriBuilderMethod => {
         assert.comment(uriBuilderMethod);
         assert.ok(wikidata[uriBuilderMethod](queryString).includes(queryString), 'should contain the query string');
     });
 });
 
-['findPerson', 'findPlace', 'findOrganization', 'findTitle'].forEach((nameOfLookupFn)=> {
+['findPerson', 'findPlace', 'findOrganization', 'findTitle', 'findRS'].forEach((nameOfLookupFn)=> {
     test(nameOfLookupFn, async function(assert){
         let thisAssert = assert
         thisAssert.plan(18);

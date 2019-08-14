@@ -30,7 +30,7 @@
     "test:chrome": "cross-env NODE_ENV=test browserify test/browser.js | browser-run -b chrome | node test/extract-coverage.js | faucet ",
     "generate-coverage": "nyc report --reporter=lcov",
     "check-coverage": "nyc check-coverage --statements 90 --branches 90 --functions 90 --lines 90",
-    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "report-coverage": "cat ./.nyc_output/coverage.json | codecov",
     "travis-deploy-once": "travis-deploy-once"
   },
   "dependencies": {

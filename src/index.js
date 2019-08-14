@@ -64,6 +64,10 @@ function getTitleLookupURI(queryString) {
     return getEntitySourceURI(queryString)
 }
 
+function getRSLookupURI(queryString) {
+    return getEntitySourceURI(queryString)
+}
+
 function callWikidata(url, queryString) {
 
     return fetchWithTimeout(url).then((parsedJSON) => {
@@ -106,14 +110,20 @@ function findTitle(queryString) {
     return callWikidata(getTitleLookupURI(queryString), queryString)
 }
 
+function findRS(queryString) {
+    return callWikidata(getRSLookupURI(queryString), queryString)
+}
+
 module.exports = {
     findPerson: findPerson,
     findPlace: findPlace,
     findOrganization: findOrganization,
     findTitle: findTitle,
+    findRS: findRS,
     getPersonLookupURI: getPersonLookupURI,
     getPlaceLookupURI: getPlaceLookupURI,
     getOrganizationLookupURI: getOrganizationLookupURI,
     getTitleLookupURI: getTitleLookupURI,
+    getRSLookupURI: getRSLookupURI,
     fetchWithTimeout: fetchWithTimeout
 }
