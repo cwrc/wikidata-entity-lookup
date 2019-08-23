@@ -10,7 +10,6 @@ before_script:
   - npm prune
 script:
   - npm run test
-  - npm run check-coverage
 after_success:
   - npm run report-coverage
   - npm run travis-deploy-once "npm run semantic-release"
