@@ -1,5 +1,7 @@
 'use strict';
 
+import wdk from 'wikidata-sdk';
+
 /*
      config is passed through to fetch, so could include things like:
      {
@@ -7,123 +9,107 @@
          credentials: 'same-origin'
     }
 */
-const wdk = require('wikidata-sdk')
 
-function fetchWithTimeout(url, config = {}, timeout = 30000) {
+const fetchWithTimeout = (url, config = {}, time = 30000) => {
 
-        return new Promise((resolve, reject) => {
-            // the reject on the promise in the timeout callback won't have any effect, *unless*
-            // the timeout is triggered before the fetch resolves, in which case the setTimeout rejects
-            // the whole outer Promise, and the promise from the fetch is dropped entirely.
-            setTimeout(() => reject(new Error('Call to Wikidata timed out')), timeout);
-            fetch(url, config).then(resolve, reject);
-        }).then(
-            response=>{
-                // check for ok status
-                if (response.ok) {
-                    return response.json()
-                }
-                // if status not ok, through an error
-                throw new Error(`Something wrong with the call to Wikidata, possibly a problem with the network or the server. HTTP error: ${response.status}`);
-            }/*,
-            // instead of handling and rethrowing the error here, we just let it bubble through
-            error => {
-            // we could instead handle a reject from either of the fetch or setTimeout promises,
-            // whichever first rejects, do some loggingor something, and then throw a new rejection.
-                console.log(error)
-                return Promise.reject(new Error(`some error jjk: ${error}`))
-            }*/
-        )
-}
+    /*
+        the reject on the promise in the timeout callback won't have any effect, *unless*
+        the timeout is triggered before the fetch resolves, in which case the setTimeout rejects
+        the whole outer Promise, and the promise from the fetch is dropped entirely.
+    */
+
+    // Create a promise that rejects in <time> milliseconds
+    const timeout = new Promise((resolve, reject) => {
+        let id = setTimeout(() => {
+            clearTimeout(id);
+            reject('Call to Wikidata timed out')
+        }, time)
+    })
+
+    // Returns a race between our timeout and the passed in promise
+    return Promise.race([
+        fetch(url, config),
+        timeout
+    ]);
+
+};
 
 // note that this method is exposed on the npm module to simplify testing,
 // i.e., to allow intercepting the HTTP call during testing, using sinon or similar.
-function getEntitySourceURI(queryString) {
+const getEntitySourceURI = (queryString) => {
     // the wdk used below, actually uses the wikidata php api
-   return wdk.searchEntities({
+    return wdk.searchEntities({
         search: queryString,
         format: 'json',
         language: 'en',
         limit: 5
-    })
-}
+    });
+};
 
-function getPersonLookupURI(queryString) {
-    return getEntitySourceURI(queryString)
-}
+const getPersonLookupURI = (queryString) => getEntitySourceURI(queryString);
 
-function getPlaceLookupURI(queryString) {
-    return getEntitySourceURI(queryString)
-}
+const getPlaceLookupURI = (queryString) => getEntitySourceURI(queryString);
 
-function getOrganizationLookupURI(queryString) {
-    return getEntitySourceURI(queryString)
-}
+const getOrganizationLookupURI = (queryString) => getEntitySourceURI(queryString);
 
-function getTitleLookupURI(queryString) {
-    return getEntitySourceURI(queryString)
-}
+const getTitleLookupURI = (queryString) => getEntitySourceURI(queryString);
 
-function getRSLookupURI(queryString) {
-    return getEntitySourceURI(queryString)
-}
+const getRSLookupURI = (queryString) => getEntitySourceURI(queryString);
 
-function callWikidata(url, queryString) {
+const callWikidata = async (url, queryString) => {
 
-    return fetchWithTimeout(url).then((parsedJSON) => {
+    let response = await fetchWithTimeout(url)
+        .catch((error) => {
+            return error;
+        })
 
-        return parsedJSON.search.map(
-            ({
-                 concepturi: uri,
-                 label: name,
-                 description
+    //if status not ok, through an error
+    if (!response.ok) throw new Error(`Something wrong with the call to Wikidata, possibly a problem with the network or the server. HTTP error: ${response.status}`);
 
-             }) => {
-                return {
-                    nameType: 'unknown',
-                    id: uri,
-                    uriForDisplay: uri.replace('http', 'https'),
-                    uri,
-                    name,
-                    repository: 'wikidata',
-                    originalQueryString: queryString,
-                    description
-                }
-            })
+    response = await response.json();
 
-    })
-}
+    const results = response.search.map(
+        ({
+            concepturi: uri,
+            label: name,
+            description
 
-function findPerson(queryString) {
-    return callWikidata(getPersonLookupURI(queryString), queryString)
-}
+        }) => {
+            return {
+                nameType: 'unknown',
+                id: uri,
+                uriForDisplay: uri.replace('http', 'https'),
+                uri,
+                name,
+                repository: 'wikidata',
+                originalQueryString: queryString,
+                description
+            }
+        });
 
-function findPlace(queryString) {
-    return callWikidata(getPlaceLookupURI(queryString), queryString)
-}
+    return results;
+};
 
-function findOrganization(queryString) {
-    return callWikidata(getOrganizationLookupURI(queryString), queryString)
-}
+const findPerson = (queryString) => callWikidata(getPersonLookupURI(queryString), queryString);
 
-function findTitle(queryString) {
-    return callWikidata(getTitleLookupURI(queryString), queryString)
-}
+const findPlace = (queryString) => callWikidata(getPlaceLookupURI(queryString), queryString);
 
-function findRS(queryString) {
-    return callWikidata(getRSLookupURI(queryString), queryString)
-}
+const findOrganization = (queryString) => callWikidata(getOrganizationLookupURI(queryString), queryString);
 
-module.exports = {
-    findPerson: findPerson,
-    findPlace: findPlace,
-    findOrganization: findOrganization,
-    findTitle: findTitle,
-    findRS: findRS,
-    getPersonLookupURI: getPersonLookupURI,
-    getPlaceLookupURI: getPlaceLookupURI,
-    getOrganizationLookupURI: getOrganizationLookupURI,
-    getTitleLookupURI: getTitleLookupURI,
-    getRSLookupURI: getRSLookupURI,
-    fetchWithTimeout: fetchWithTimeout
+const findTitle = (queryString) => callWikidata(getTitleLookupURI(queryString), queryString);
+
+const findRS = (queryString) => callWikidata(getRSLookupURI(queryString), queryString);
+
+export default {
+    findPerson,
+    findPlace,
+    findOrganization,
+    findTitle,
+    findRS,
+    getPersonLookupURI,
+    getPlaceLookupURI,
+    getOrganizationLookupURI,
+    getTitleLookupURI,
+    getRSLookupURI,
+    fetchWithTimeout
 }
