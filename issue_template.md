@@ -16,12 +16,14 @@
 <!--- Provide an unambiguous set of steps to -->
 <!--- reproduce this bug.  Screenshots are invaluable.  -->
 <!--- Links to screen videos or brief .gif files can help a lot too.   -->
+
 1.
 2.
 3.
 4.
 
 ## Your Environment
+
 * URL:
 
 * Browser Name:
