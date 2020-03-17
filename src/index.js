@@ -20,18 +20,17 @@ const fetchWithTimeout = (url, config = {}, time = 30000) => {
 
     // Create a promise that rejects in <time> milliseconds
     const timeout = new Promise((resolve, reject) => {
-        let id = setTimeout(() => {
+        const id = setTimeout(() => {
             clearTimeout(id);
             reject('Call to Wikidata timed out')
         }, time)
-    })
+    });
 
     // Returns a race between our timeout and the passed in promise
     return Promise.race([
         fetch(url, config),
         timeout
     ]);
-
 };
 
 // note that this method is exposed on the npm module to simplify testing,
@@ -58,17 +57,17 @@ const getRSLookupURI = (queryString) => getEntitySourceURI(queryString);
 
 const callWikidata = async (url, queryString) => {
 
-    let response = await fetchWithTimeout(url)
+    const response = await fetchWithTimeout(url)
         .catch((error) => {
             return error;
-        })
+        });
 
     //if status not ok, through an error
     if (!response.ok) throw new Error(`Something wrong with the call to Wikidata, possibly a problem with the network or the server. HTTP error: ${response.status}`);
 
-    response = await response.json();
+    const responseJson = await response.json();
 
-    const results = response.search.map(
+    const results = responseJson.search.map(
         ({
             concepturi: uri,
             label: name,

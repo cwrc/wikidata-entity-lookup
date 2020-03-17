@@ -63,7 +63,7 @@ For now, we've chosen the latter. In particular, we use the wikidata-sdk npm pac
 
 ## Installation
 
-npm i wikidata-entity-lookup -S
+`npm i wikidata-entity-lookup`
 
 ## Use
 
@@ -133,8 +133,7 @@ We use [fetch-mock](https://github.com/wheresrhys/fetch-mock) to mock http calls
 
 <!-- ### Code Coverage
 
-We generate code coverage by instrumenting our code with [istanbul](https://github.com/gotwarlost/istanbul) before [browser-run](https://github.com/juliangruber/browser-run) runs the tests,
-then extract the coverage (which [istanbul](https://github.com/gotwarlost/istanbul) writes to the global object, i.e., the window in the browser), format it with [istanbul](https://github.com/gotwarlost/istanbul), and finally report (Travis actually does this for us) to [codecov.io](codecov.io) -->
+We generate code coverage by instrumenting our code with [istanbul](https://github.com/gotwarlost/istanbul) before [browser-run](https://github.com/juliangruber/browser-run) runs the tests, then extract the coverage (which [istanbul](https://github.com/gotwarlost/istanbul) writes to the global object, i.e., the window in the browser), format it with [istanbul](https://github.com/gotwarlost/istanbul), and finally report (Travis actually does this for us) to [codecov.io](codecov.io) -->
 
 <!-- ### Transpilation
 
@@ -146,5 +145,4 @@ We use [Travis](https://travis-ci.org).
 
 ### Release
 
-We follow [SemVer](http://semver.org), which [Semantic Release](https://github.com/semantic-release/semantic-release) makes easy.  
-Semantic Release also writes our commit messages, sets the version number, publishes to NPM, and finally generates a changelog and a release (including a git tag) on GitHub.
+We follow [SemVer](http://semver.org), which [Semantic Release](https://github.com/semantic-release/semantic-release) makes easy. Semantic Release also writes our commit messages, sets the version number, publishes to NPM, and finally generates a changelog and a release (including a git tag) on GitHub.

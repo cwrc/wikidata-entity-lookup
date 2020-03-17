@@ -71,8 +71,7 @@ test('lookup builders', () => {
                 description: ''
             })).toBe(true);
             expect(singleResult.originalQueryString).toBe(queryString);
-        })
-
+        });
     })
 
     test(`${nameOfLookupFn} - no results`, async () => {
@@ -82,8 +81,7 @@ test('lookup builders', () => {
        const results = await wikidata[nameOfLookupFn](queryStringWithNoResults);
        expect(Array.isArray(results)).toBe(true);
        expect(results.length).toBe(0);
-       
-   })
+   });
 
     test(`${nameOfLookupFn} - server error`, async () => {
         // with a server error
@@ -97,7 +95,7 @@ test('lookup builders', () => {
         })
         // a falsey result should be returned
         expect(shouldBeNullResult).toBeFalsy();
-    })
+    });
 
     test(`${nameOfLookupFn} - times out`, async () => {
         // when query times out
@@ -105,6 +103,7 @@ test('lookup builders', () => {
         await wikidata[nameOfLookupFn](queryStringForTimeout)
             .catch( () => {
                 expect(true).toBe(true);
-            })
-   })
-})
+            });
+   });
+
+});
