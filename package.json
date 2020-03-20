@@ -2,62 +2,61 @@
   "name": "wikidata-entity-lookup",
   "version": "0.0.0-development",
   "description": "Find entities (people, places, organizations) in wikidata.",
-  "main": "src/index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/cwrc/wikidata-entity-lookup.git"
-  },
   "keywords": [
     "wikidata",
     "entity",
     "linked-data"
   ],
-  "author": "James Chartrand",
-  "license": "GPL-3.0",
+  "homepage": "https://github.com/cwrc/wikidata-entity-lookup#readme",
   "bugs": {
     "url": "https://github.com/cwrc/wikidata-entity-lookup/issues"
   },
-  "homepage": "https://github.com/cwrc/wikidata-entity-lookup#readme",
+  "license": "GPL-3.0",
+  "author": "James Chartrand <jc.chartrand@gmail.com>",
+  "contributors": [
+    "Andrew MacDonald <andrewjames.code@gmail.com>",
+    "Luciano Frizzera <lucaju@gmail.com>"
+  ],
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cwrc/wikidata-entity-lookup.git"
+  },
   "scripts": {
     "semantic-release": "semantic-release",
     "cm": "git-cz",
-    "browserify": "mkdirp build && browserify test/development.js -o build/development.js --debug",
-    "watch": "mkdirp build && watchify test/development.js -o build/development.js --debug --verbose",
     "test": "jest",
     "report-coverage": "cat ./coverage/coverage-final.json | codecov",
     "travis-deploy-once": "travis-deploy-once"
   },
   "dependencies": {
-    "wikidata-sdk": "^5.2.8"
+    "wikidata-sdk": "^7.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-transform-runtime": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/runtime-corejs2": "^7.5.5",
-    "babelify": "^10.0.0",
-    "browserify": "^16.2.3",
-    "codecov": "^3.5.0",
-    "commitizen": "^3.1.1",
-    "cz-conventional-changelog": "^2.1.0",
-    "fetch-mock": "^5.13.1",
-    "husky": "^2.1.0",
-    "jest": "^24.9.0",
-    "mkdirp": "0.5.1",
-    "semantic-release": "^15.13.12",
-    "travis-deploy-once": "^5.0.11",
-    "watchify": "^3.11.1"
+    "@babel/core": "^7.8.7",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.7",
+    "codecov": "^3.6.5",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.1.0",
+    "eslint": "^6.8.0",
+    "fetch-mock": "^9.2.1",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "semantic-release": "^17.0.4",
+    "travis-deploy-once": "^5.0.11"
   },
   "config": {
     "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
+      "path": "cz-conventional-changelog"
     }
   },
   "husky": {
     "hooks": {
       "pre-commit": "npm run test"
     }
-  },"jest": {
+  },
+  "jest": {
     "collectCoverage": true,
     "collectCoverageFrom": [
       "./src/index.js"
