@@ -42,7 +42,7 @@
     "eslint": "^7.0.0",
     "fetch-mock": "^9.9.0",
     "husky": "^4.2.5",
-    "jest": "^25.5.4",
+    "jest": "^26.0.1",
     "semantic-release": "^17.0.7",
     "travis-deploy-once": "^5.0.11"
   },
