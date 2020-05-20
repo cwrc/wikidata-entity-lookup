@@ -36,7 +36,7 @@
     "@babel/core": "^7.9.6",
     "@babel/plugin-transform-runtime": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
-    "codecov": "^3.6.5",
+    "codecov": "^3.7.0",
     "commitizen": "^4.1.2",
     "cz-conventional-changelog": "^3.2.0",
     "eslint": "^7.0.0",
@@ -55,23 +55,5 @@
     "hooks": {
       "pre-commit": "npm run test"
     }
-  },
-  "jest": {
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "./src/index.js"
-    ],
-    "coverageDirectory": "./coverage",
-    "coverageThreshold": {
-      "global": {
-        "branches": 90,
-        "functions": 90,
-        "lines": 90,
-        "statements": 90
-      }
-    },
-    "testMatch": [
-      "**/test/**/*.[jt]s?(x)"
-    ]
   }
 }
