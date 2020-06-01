@@ -30,20 +30,20 @@
     "travis-deploy-once": "travis-deploy-once"
   },
   "dependencies": {
-    "wikidata-sdk": "^7.4.2"
+    "wikidata-sdk": "^7.4.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/plugin-transform-runtime": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
+    "@babel/core": "^7.10.2",
+    "@babel/plugin-transform-runtime": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
     "codecov": "^3.7.0",
     "commitizen": "^4.1.2",
     "cz-conventional-changelog": "^3.2.0",
-    "eslint": "^7.0.0",
-    "fetch-mock": "^9.10.0",
+    "eslint": "^7.1.0",
+    "fetch-mock": "^9.10.1",
     "husky": "^4.2.5",
     "jest": "^26.0.1",
-    "semantic-release": "^17.0.7",
+    "semantic-release": "^17.0.8",
     "travis-deploy-once": "^5.0.11"
   },
   "config": {
