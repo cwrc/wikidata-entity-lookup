@@ -30,7 +30,7 @@
     "travis-deploy-once": "travis-deploy-once"
   },
   "dependencies": {
-    "wikidata-sdk": "^7.4.3"
+    "wikidata-sdk": "^7.6.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.3",
