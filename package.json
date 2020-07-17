@@ -33,13 +33,13 @@
     "wikidata-sdk": "^7.6.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.3",
-    "@babel/plugin-transform-runtime": "^7.10.3",
-    "@babel/preset-env": "^7.10.3",
+    "@babel/core": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
     "codecov": "^3.7.0",
     "commitizen": "^4.1.2",
     "cz-conventional-changelog": "^3.2.0",
-    "eslint": "^7.3.1",
+    "eslint": "^7.4.0",
     "fetch-mock": "^9.10.3",
     "husky": "^4.2.5",
     "jest": "^26.1.0",
