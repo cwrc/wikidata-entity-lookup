@@ -2,8 +2,7 @@
   "searchinfo": {
     "search": "miles"
   },
-  "search": [
-    {
+  "search": [{
       "repository": "",
       "id": "Q253276",
       "concepturi": "http://www.wikidata.org/entity/Q253276",

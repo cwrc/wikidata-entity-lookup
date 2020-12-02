@@ -1,18 +1,18 @@
 <!--- Provide a concise but specific and meaningful summary of the issue in the Title above -->
 
-## Expected Behaviour
+# Expected Behaviour
 <!--- If you're describing a bug, tell us what should happen -->
 <!--- If you're suggesting a change/improvement, tell us how it should work -->
 
-## Current Behaviour
+# Current Behaviour
 <!--- If describing a bug, tell us what happens instead of the expected behaviour -->
 <!--- If suggesting a change/improvement, explain the difference from current behaviour -->
 
-## Possible Solution
+# Possible Solution
 <!--- Not obligatory, but suggest a fix/reason for the bug, -->
 <!--- or suggestions on how to implement the addition or change -->
 
-## Steps to Reproduce (for bugs)
+# Steps to Reproduce (for bugs)
 <!--- Provide an unambiguous set of steps to -->
 <!--- reproduce this bug.  Screenshots are invaluable.  -->
 <!--- Links to screen videos or brief .gif files can help a lot too.   -->
