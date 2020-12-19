@@ -32,16 +32,16 @@
     "wikidata-sdk": "^7.8.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
-    "@babel/plugin-transform-runtime": "^7.12.1",
-    "@babel/preset-env": "^7.12.7",
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
     "codecov": "^3.8.1",
     "commitizen": "^4.2.2",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^7.14.0",
+    "eslint": "^7.16.0",
     "fetch-mock": "^9.11.0",
-    "git-cz": "^4.7.5",
-    "husky": "^4.3.0",
+    "git-cz": "^4.7.6",
+    "husky": "^4.3.6",
     "jest": "^26.6.3",
     "semantic-release": "^17.3.0"
   },
