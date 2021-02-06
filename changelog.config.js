@@ -1,3 +1,3 @@
 module.exports = {
-	maxMessageLength: 110,
-}
+  maxMessageLength: 110,
+};
