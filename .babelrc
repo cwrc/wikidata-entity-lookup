@@ -3,11 +3,6 @@
         "@babel/preset-env"
     ],
     "plugins": [
-        ["@babel/plugin-transform-runtime", {
-            "absoluteRuntime": false,
-            "helpers": false,
-            "regenerator": true,
-            "useESModules": false
-        }]
+        "@babel/plugin-transform-runtime"
     ]
 }
