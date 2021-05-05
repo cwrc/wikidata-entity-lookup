@@ -26,35 +26,26 @@
     "cm": "git-cz",
     "test": "jest",
     "report-coverage": "cat ./coverage/coverage-final.json | codecov",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "prepare": "husky install"
   },
   "dependencies": {
-    "wikidata-sdk": "^7.9.0"
+    "wikidata-sdk": "^7.12.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.13",
-    "@babel/plugin-transform-runtime": "^7.12.15",
-    "@babel/preset-env": "^7.12.13",
-    "codecov": "^3.8.1",
+    "@babel/core": "^7.14.0",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.14.1",
+    "codecov": "^3.8.2",
     "commitizen": "^4.2.3",
-    "eslint": "^7.19.0",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-prettier": "^3.3.1",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "fetch-mock": "^9.11.0",
     "git-cz": "^4.7.6",
-    "husky": "^4.3.8",
+    "husky": "^6.0.0",
     "jest": "^26.6.3",
     "prettier": "^2.2.1",
-    "semantic-release": "^17.3.7"
-  },
-  "config": {
-    "commitizen": {
-      "path": "git-cz"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run test"
-    }
+    "semantic-release": "^17.4.2"
   }
 }
