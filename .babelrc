@@ -1,13 +1,4 @@
 {
-    "presets": [
-        "@babel/preset-env"
-    ],
-    "plugins": [
-        ["@babel/plugin-transform-runtime", {
-            "absoluteRuntime": false,
-            "helpers": false,
-            "regenerator": true,
-            "useESModules": false
-        }]
-    ]
+  "presets": ["@babel/preset-env"],
+  "plugins": ["@babel/plugin-transform-runtime"]
 }

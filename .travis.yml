@@ -5,7 +5,7 @@ cache: npm
 notifications:
   email: false
 node_js:
-  - "14.15.1"
+  - "14.15.4"
 jobs:
   include:
     - stage: test
@@ -16,5 +16,6 @@ jobs:
         - npm run report-coverage
         - echo "Deploying to npm ..."
       deploy:
+        skip_cleanup: true
         provider: script
         script: npx semantic-release
